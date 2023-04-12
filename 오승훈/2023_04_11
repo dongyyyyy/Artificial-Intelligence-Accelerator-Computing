@@ -1,0 +1,25 @@
+## Artificial intelligence
+
+# np.mean을 이용해서 Dataset의 평균을 구하는 과정
+
+# np.mean을 이용해서 Dataset의 분산을 구하는 과정
+# 분산을 구하는 방법은 Dataset에서 평균을 빼고 그 값을 제곱한다.
+
+# sample을 normalized 하기 위해서는 Dataset에서 평균을 빼주고 표준편차로 나눠준다.
+# np.sqrt를 사용하는 이유는 분산에 루트를 씌워서 표준편차를 만들기 위함이다.
+
+# train과 같은 평균과 분산을 사용하는 이유
+# 데이터와 동일한 분포에서 샘플링된 새로운 데이터를 사용하면
+# 모델이 좀 더 일반화된 예측을 수행할 가능성이 높아지기 때문에 사용
+
+# sample을 normalized 하기 위해서는 Dataset에서 평균을 빼주고 표준편차로 나눠준다.
+# np.sqrt를 사용하는 이유는 분산에 루트를 씌워서 표준편차를 만들기 위함이다.
+
+# np.ones를 통해서 validation sample의 길이만큼 만들고
+# normalized 된 validation set과 np.hstack을 통해서 행렬을 만들어준다.
+
+# train과 같이 validation에서도 같게 loss_list를 만들어준다.
+# mmse_cost를 사용해서 validation set의 data를 넣고 loss를 구해준다.
+
+# train과 같이 validation에서도 같게 loss_list를 만들어준다.
+# mmse_cost를 사용해서 validation set의 data를 넣고 loss를 구해준다.
