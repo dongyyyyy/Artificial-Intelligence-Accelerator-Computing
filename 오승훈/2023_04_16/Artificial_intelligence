@@ -1,0 +1,24 @@
+## 인공지능 pdf 부시기
+
+pdf를 읽어 본 결과
+
+주의 해야 될 사항
+1. 처음에 함수 관련 개념 조금 나오는데 그거 확실히 한 번 잡고가기
+2. 행렬 관련해서 헷갈릴게 있는지 고민 좀 해보기
+3. 교수님이 표기하는 column vector랑 row vector 표기법 꼭 잡고 가기
+4. 내적, 외적 차이 저번에도 헷갈려 한 거 같은데 잡기
+5. 3강에서 행렬의 곱셈에서 다른 형태로 존재하는 사항들 체크하기
+6. 내가 공부했던 신경망이랑 수업에서 가장 다른 점을 뽑자면 one-trick이라는 교수님 방법이 존재
+  --> 이거 그냥 x, w의 맨 앞에 즉, 0번째에 1이랑 b 추가하는거임
+7. 신경망에서 각각의 w가 어떻게 표현되는지 보면 좋을 듯 ex) (w_1^[1])_2
+8. loss 구할 때 MSE 쓰는데 확인
+9. gradient --> 변곡점 --> saddle point, local minima, global minima 우리가 원하는거는 global minima
+10. GD vs SGD
+11. k-fold
+12. overfitting and underfitting
+  --> underfitting 해결책 : 자유도를 조금 더 줌, 학습을 길게함
+  --> overfitting 해결책 : augmentation 데이터 증강, regularization, dropout
+13. crossentropy, one_hot_encoding
+
+이거 딥기초 내용인데 사실 인공지능이랑 내용이 거의 겹침
+다만 여기서 더 추가 할거는 normalization 정도 과제 마지막 문제에서 헷갈렸었음
