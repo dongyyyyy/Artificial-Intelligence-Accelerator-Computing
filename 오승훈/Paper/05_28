@@ -1,0 +1,52 @@
+# 5 / 28 (일)
+
+When Does Label Smoothing Help
+
+Label Smoothing
+
+- Hard Label  : One-hot encoded vector로 정답 인덱스는 1, 나머지는 0으로 구성하는 것
+- Soft Label : label을 0과 1사이의 값으로 구성하는 것
+- One-hot encoded vector에서 0인 값은 모두 0보다 큰 값인 0.02로, 정답을 나타내는 1은 1보다 작은 0.92로 label smoothing을 통해 벡터값을 변환, 다른말로 label-smoothing regularization
+
+Penultimate
+
+- 라벨 스무딩의 효과를 시각적으로 나타내기 위한 방법으로, 소프트맥스 출력을 위한 fully-connected layer 이전인 네트워크 은닉층의 마지막 층(Penultimate layer)의 활성화를 이용해 시각화하는 방법, 이런 시각화를 통해서 label smoothing의 유무에 따라 어떻게 표현성(representation)이 달라지는지 확인할 수 있다.
+
+Expected Calibration Error(ECE)
+
+- Calibration : 모형의 출력값이 실제 confidence를 반영하도록 만드는 것
+- ECE : confidence와 distribution의 차이를 측정
+
+GAN (Generative Adversarial Networks)\
+
+- ‘경쟁’ 하는 과정을 통해 generative model을 추정하는 새로운 프레임워크 제안
+- 2개의 학습 모델
+    1. Generative model(생성 모델), G : training data의 분포를 모사 —> discriminative model이 구별하지 못하도록함
+    2. Discriminative model(판별 모델), D : sample 데이터가 G로부터 나온 데이터가 아닌 실제 training data로 부터 나온 데이터일 확률을 추정
+- GAN은 생성 모델과, 판별 모델, G, D 두 가지 모델을 학습하며, G는 실제 training data의 분포를 모사하며 그와 비슷한 데이터를 생성하려고하고, D는 실제 데이터와 G가 생성해낸 데이터를 구별하려하는 경쟁적인 과정을 이룸
+
+Adversarial nets
+
+- 학습 초반에 G가 생성해내는 이미지는 D가 G가 생성한 이미지가 가짜 샘플인지 실제 데이터의 샘플인지 바로 구별할 수 있을 만큼 성능이 좋지않아, D(G(z))의 결과가 0에 가까움. 즉 z로 부터 G가 생성해낸 이미지가 D가 판별하였을 때 바로 가짜라고 판별할 수 있다고 하는 것을 수식을 표현, 그리고 학습이 진행될수록, G는 실제 데이터의 분포를 모사하며 D(G(z))의 값이 1이 되도록 발전. 이는 G가 생성해 낸 이미지가 D가 판별하였을 때 진짜라고 판별해버리는 것을 표현.
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4a33e754-dbce-4845-822a-172f5ea62ae5/Untitled.png)
+
+Perceptual Loss
+
+- Perceptual Loss =  Adversarial Loss + Content Loss
+- Adversarial Loss는 Generator가 생성한 이미지를 진짜라고 판단할 확률로 앞에 -가 붙어있으므로 이를 최소화하는 방향으로 학습한다. 기존 GAN Loss는 log(1 - x)의 형태로 되어있으나, 이러면 training 초반 부에 학습이 느리다는 단점이 있다. 이를 -log(x)의 형태로 바꾸면 학습 속도가 빠르다.
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/770749f3-82f8-4078-9f8e-1dfb02c626c9/Untitled.png)
+
+- Content Loss는 Perceptual Losses for Real-Time Style Transfer and Super-Resolution라는 논문에서 처음 제시된 Perceptual Loss와 거의 동일함.
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f0ff2917-b889-4f8a-b02c-0940b0fe5bef/Untitled.png)
+
+- Generator를 이용해 얻어낸 가짜 고해상도 이미지를 진짜 고해상도 이미지와 Pixel by pixel로 비교하는 것을 Per-pixel loss라고 하고, 각 이미지를 pre-trained CNN 모델에 통과시켜 얻어낸 Feature map을 비교하는 것을 Perceptual Loss라고 한다.
+
+GAN 종류
+
+1. Stlye GAN
+2. Cycle GAN
+3. Progressive GAN
+4. SRGAN(SR —> Super resolution)
